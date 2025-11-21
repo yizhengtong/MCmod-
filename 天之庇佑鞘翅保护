@@ -1,0 +1,54 @@
+package com.example.skyblessing.enchants;
+
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+
+public class CushioningEnchantment extends Enchantment {
+    
+    public CushioningEnchantment() {
+        super(Rarity.RARE, EnchantmentTarget.ARMOR_CHEST, new EquipmentSlot[]{EquipmentSlot.CHEST});
+    }
+    
+    @Override
+    public int getMinPower(int level) {
+        return 10 + (level - 1) * 10;
+    }
+    
+    @Override
+    public int getMaxPower(int level) {
+        return this.getMinPower(level) + 30;
+    }
+    
+    @Override
+    public int getMaxLevel() {
+        return 8; // 最高8级
+    }
+    
+    @Override
+    public boolean isAcceptableItem(ItemStack stack) {
+        return stack.getItem() == Items.ELYTRA;
+    }
+    
+    @Override
+    protected boolean canAccept(Enchantment other) {
+        return super.canAccept(other);
+    }
+    
+    @Override
+    public boolean isAvailableForEnchantedBookOffer() {
+        return true; // 可以通过与村民交易获得附魔书
+    }
+    
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return true; // 可以在附魔台随机出现
+    }
+    
+    @Override
+    public boolean isTreasure() {
+        return true; // 属于宝藏附魔，也可以通过宝箱、钓鱼等方式获得
+    }
+}
