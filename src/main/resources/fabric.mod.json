@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "sky-blessing",
+  "version": "1.0.0",
+  "name": "天之庇佑",
+  "description": "提供减免鞘翅动能伤害的附魔",
+  "authors": ["YourName"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/sky-blessing/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.example.skyblessing.SkyBlessingMod"
+    ]
+  },
+  "mixins": [
+    "sky-blessing.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}
